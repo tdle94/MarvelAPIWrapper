@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.description      = 'Is making an API request to Marvel too tedious for you. From having to provide parameters to your GET request with a long url. This wrapper will filter out optional parameter for you and make your GET request experience better'
 
-  s.swift_version    = '3.1'
+  s.swift_version    = '4.0'
   s.homepage         = 'https://github.com/tdle94/MarvelApiWrapper'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
