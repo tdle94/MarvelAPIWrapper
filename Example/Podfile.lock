@@ -1,0 +1,31 @@
+PODS:
+  - MarvelApiWrapper (0.1.0)
+  - Nimble (7.3.4)
+  - Quick (1.2.0)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - MarvelApiWrapper (from `../`)
+  - Nimble (~> 7.0)
+  - Quick (~> 1.2.0)
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  trunk:
+    - Nimble
+    - Quick
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  MarvelApiWrapper:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MarvelApiWrapper: b14d3fcce879e250b6f0d4dda025cb3839c95ca9
+  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 896372a6774cae75de06abbcf1b906b77612ebf2
+
+COCOAPODS: 1.8.4
