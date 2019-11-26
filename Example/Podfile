@@ -1,8 +1,9 @@
+platform :ios, '8.0'
 use_frameworks!
 
 target 'MarvelApiWrapper_Example' do
   pod 'MarvelApiWrapper', :path => '../'
-  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftyJSON'
 
   target 'MarvelApiWrapper_Tests' do
     inherit! :search_paths
