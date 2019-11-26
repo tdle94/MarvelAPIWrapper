@@ -7,10 +7,8 @@ os: osx
 language: swift
 podfile: Example/Podfile
 before_install:
- - rvm install ruby-2.2.2
  - gem install cocoapods # Since Travis is not always on latest version
  - gem install xcpretty -N
- - brew update
 script:
 - set -o pipefail && xcodebuild test -enableCodeCoverage YES -destination 'platform=iOS Simulator,OS=11.4,name=iPhone 8' -workspace Example/MarvelApiWrapper.xcworkspace -scheme MarvelApiWrapper-Example ONLY_ACTIVE_ARCH=NO | xcpretty
 #- pod lib lint
