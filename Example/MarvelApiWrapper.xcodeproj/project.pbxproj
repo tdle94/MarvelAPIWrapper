@@ -536,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B194F27A5A5F62E903D12A5 /* Pods-MarvelApiWrapper_Tests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DEVELOPMENT_TEAM = DTUTGY3V82;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -559,6 +560,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 62348B3652139B2C67C8734D /* Pods-MarvelApiWrapper_Tests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				DEVELOPMENT_TEAM = DTUTGY3V82;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
