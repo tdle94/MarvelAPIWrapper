@@ -3,45 +3,25 @@
 import Quick
 import Nimble
 import MarvelApiWrapper
+import SwiftyJSON
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {
-        describe("these will fail") {
-
-            it("can do maths") {
-                expect(1) == 2
-            }
-
-            it("can read") {
-                expect("number") == "string"
-            }
-
-            it("will eventually fail") {
-                expect("time").toEventually( equal("done") )
-            }
-            
-            context("these will pass") {
-
-                it("can do maths") {
-                    expect(23) == 23
-                }
-
-                it("can read") {
-                    expect("🐮") == "🐮"
-                }
-
-                it("will eventually pass") {
-                    var time = "passing"
-
-                    DispatchQueue.main.async {
-                        time = "done"
-                    }
-
-                    waitUntil { done in
-                        Thread.sleep(forTimeInterval: 0.5)
-                        expect(time) == "done"
-
-                        done()
+        let privateKey = "05b154e4641c958256743a9fa74bd16a"
+        let publicKey = "8bd96a0e83daff033aa0e1aaf3fd1644aece99fe"
+        let marvel = MarvelApiWrapper(publicKey: publicKey, privateKey: privateKey)
+        
+        describe("Marvel API call") {
+            describe("Character API call") {
+                it("has valid data from getAllCharacterWith method") {
+                    var config = CharacterConfig()
+                    config.limit = 1
+                    marvel.getAllCharacterWith(config: config) { data, statusCode, error in
+                        if data == nil {
+                            expect(data).to(equal(nil))
+                        } else {
+                            expect(data).to(be(Data(base64Encoded: data!)))
+                        }
                     }
                 }
             }
