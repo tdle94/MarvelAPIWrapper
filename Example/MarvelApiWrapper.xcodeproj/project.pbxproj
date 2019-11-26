@@ -213,6 +213,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = DTUTGY3V82;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -503,6 +504,7 @@
 			baseConfigurationReference = 203FFD3879748B780ED5CC88 /* Pods-MarvelApiWrapper_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DTUTGY3V82;
 				INFOPLIST_FILE = MarvelApiWrapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -518,6 +520,7 @@
 			baseConfigurationReference = 70ED1C5331972CBD01B63482 /* Pods-MarvelApiWrapper_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DTUTGY3V82;
 				INFOPLIST_FILE = MarvelApiWrapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

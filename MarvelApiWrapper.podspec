@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MarvelApiWrapper'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MarvelApiWrapper.'
+  s.summary          = 'A wrapper class around Marvel API that will make your life easier for requesting characters, comics, event, stories and much more from Marvel Studio'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,10 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  s.description      = 'Is making an API request to Marvel too tedious for you. From having to provide parameters to your GET request with a long url. This wrapper will filter out optional parameter for you and make your GET request experience better'
 
+  s.swift_version    = '4.0'
   s.homepage         = 'https://github.com/tdle94/MarvelApiWrapper'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
