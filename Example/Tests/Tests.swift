@@ -87,6 +87,40 @@ class TableOfContentsSpec: QuickSpec {
                     marvel.getStoriesWith(comicId: comicId, config: ComicStoryConfig(), completion: self.completion(_:_:_:))
                 }
             }
+            
+            /// Creators
+            describe("Creators API call") {
+                it("has valid data from getAllComicWith method") {
+                    var config = CreatorConfig()
+                    config.limit = 1
+                    marvel.getAllComicCreator(config: config, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleCreatorWith method for a single commic id") {
+                    let creatorId = 6606
+                    marvel.getSingleCreatorWith(id: creatorId, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicsCreatedBy method for a single commic id") {
+                    let creatorId = 6606
+                    marvel.getComicsCreatedBy(creatorId: creatorId, config: CreatorComicConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getEventsFeaturing method for a single commic id") {
+                    let creatorId = 6606
+                    marvel.getEventsFeaturing(creatorId: creatorId, config: CreatorEventConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single commic id") {
+                    let creatorId = 6606
+                    marvel.getComicSeriesWithAnAppearanceOf(creatorId: creatorId, config: CreatorSerieConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleComicWith method for a single commic id") {
+                    let creatorId = 6606
+                    marvel.getComicStoriesCreatedBy(creatorId: creatorId, config: CreatorStoryConfig(), completion: self.completion(_:_:_:))
+                }
+            }
         }
     }
 }
