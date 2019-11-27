@@ -90,69 +90,104 @@ class TableOfContentsSpec: QuickSpec {
             
             /// Creators
             describe("Creators API call") {
-                it("has valid data from getAllComicWith method") {
+                it("has valid data from getAllComicCreator method") {
                     var config = CreatorConfig()
                     config.limit = 1
                     marvel.getAllComicCreator(config: config, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getSingleCreatorWith method for a single commic id") {
+                it("has valid data from getSingleCreatorWith method for a single creator id") {
                     let creatorId = 6606
                     marvel.getSingleCreatorWith(id: creatorId, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicsCreatedBy method for a single commic id") {
+                it("has valid data from getComicsCreatedBy method for a single creator id") {
                     let creatorId = 6606
                     marvel.getComicsCreatedBy(creatorId: creatorId, config: CreatorComicConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getEventsFeaturing method for a single commic id") {
+                it("has valid data from getEventsFeaturing method for a single creator id") {
                     let creatorId = 6606
                     marvel.getEventsFeaturing(creatorId: creatorId, config: CreatorEventConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single commic id") {
+                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single creator id") {
                     let creatorId = 6606
                     marvel.getComicSeriesWithAnAppearanceOf(creatorId: creatorId, config: CreatorSerieConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getSingleComicWith method for a single commic id") {
+                it("has valid data from getComicStoriesCreatedBy method for a single creator id") {
                     let creatorId = 6606
                     marvel.getComicStoriesCreatedBy(creatorId: creatorId, config: CreatorStoryConfig(), completion: self.completion(_:_:_:))
                 }
             }
             
             /// Events
-            describe("Creators API call") {
-                it("has valid data from getAllComicWith method") {
+            describe("Events API call") {
+                it("has valid data from getAllEvents method") {
                     var config = EventConfig()
                     config.limit = 1
                     marvel.getAllEvents(config: config, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getSingleCreatorWith method for a single commic id") {
+                it("has valid data from getSingleComicWith method for a single event id") {
                     let eventId = 116
                     marvel.getSingleComicWith(id: eventId, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicsCreatedBy method for a single commic id") {
+                it("has valid data from getComicSeriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getComicSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getEventsFeaturing method for a single commic id") {
+                it("has valid data from getComicStoriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getComicStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single commic id") {
+                it("has valid data from getComicSeriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getComicSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getSingleComicWith method for a single commic id") {
+                it("has valid data from getComicStoriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getComicStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
+                }
+            }
+            
+            
+            /// Series
+            describe("Series API call") {
+                it("has valid data from getAllComicSerie method") {
+                    var config = SerieConfig()
+                    config.limit = 1
+                    marvel.getAllComicSeries(config: config, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleComicSeriesWith method for a single serie id") {
+                    let serieId = 28292
+                    marvel.getSingleComicSeriesWith(seriesId: serieId, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getCharactersAppearIn method for a single serie id") {
+                    let serieId = 28292
+                    marvel.getCharactersAppearIn(seriesId: serieId, config: SerieCharacterConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicsPartOf method for a single serie id") {
+                    let serieId = 28292
+                    marvel.getComicsPartOf(seriesId: serieId, config: SerieComicConfig(), completion:  self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicCreatorsAppearIn method for a single serie id") {
+                    let serieId = 28292
+                    marvel.getComicCreatorsAppearIn(seriesId: serieId, config: SerieCreatorConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getEventsOccurIn method for a single serie id") {
+                    let serieId = 28292
+                    marvel.getEventsOccurIn(seriesId: serieId, config: SerieEventConfig(), completion: self.completion(_:_:_:))
                 }
             }
         }

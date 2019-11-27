@@ -18,10 +18,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let marvel = MarvelApiWrapper(publicKey: privateKey, privateKey: publicKey)
-        var config = EventConfig()
+        var config = SerieConfig()
         config.limit = 1
-        
-        marvel.getAllEvents(config: config) { data, statusCode, error in
+
+        marvel.getAllComicSeries(config: config) { data, statusCode, error in
             guard let data = data else {
                 return
             }
