@@ -152,6 +152,9 @@ public struct CreatorSerieConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
 
 /// GET /v1/public/stories configuration. Provide optional filter

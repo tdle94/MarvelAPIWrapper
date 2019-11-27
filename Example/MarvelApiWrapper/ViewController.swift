@@ -7,11 +7,28 @@
 //
 
 import UIKit
+import MarvelApiWrapper
+import SwiftyJSON
 
 class ViewController: UIViewController {
+    
+    let privateKey = "replace with your own private key"
+    let publicKey = "replace with your own public key"
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let marvel = MarvelApiWrapper(publicKey: privateKey, privateKey: publicKey)
+        var config = ComicConfig()
+        config.limit = 1
+        
+        marvel.getAllComicWith(config: config) { data, statusCode, error in
+            guard let data = data else {
+                return
+            }
+            
+            let json = JSON(data)
+            print(json)
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 

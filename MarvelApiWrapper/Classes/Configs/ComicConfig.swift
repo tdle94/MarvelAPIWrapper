@@ -59,6 +59,9 @@ public struct ComicConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
 
 /// GET /v1/public/comics/{comicId}/character configuration. Provide optional filter
@@ -80,6 +83,9 @@ public struct ComicCharacterConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
 
 /// GET /v1/public/comics/{comicId}/creator. Provide optional filter
@@ -111,6 +117,9 @@ public struct ComicCreatorConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
 
 /// GET /v1/public/comics/{comicId}/event. Provide optional filter
@@ -134,6 +143,9 @@ public struct ComicEventConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
 
 /// GET /v1/public/comics/{comicId}/story. Provide optional filter
@@ -153,4 +165,7 @@ public struct ComicStoryConfig {
     public var limit: Int?
     
     public var offset: Int?
+    
+    // MARK: - initialize
+    public init() {}
 }
