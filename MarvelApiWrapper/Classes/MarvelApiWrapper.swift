@@ -388,7 +388,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllComicCreator(config: CreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllCreatorWith(config: CreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
 
         /// Optional params
@@ -558,7 +558,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllEvents(config: EventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllEventWith(config: EventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         
         /// Optional params
@@ -670,7 +670,7 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicCreatorsAppearIn(eventId: Int, config: EventCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getCreatorsAppearIn(eventId: Int, config: EventCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
 
@@ -693,7 +693,7 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicSeriesFrom(eventId: Int, config: EventSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSeriesFrom(eventId: Int, config: EventSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
 
@@ -720,7 +720,7 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicStoriesFrom(eventId: Int, config: EventStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getStoriesFrom(eventId: Int, config: EventStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
 
@@ -743,7 +743,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllComicSeries(config: SerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllSerieWith(config: SerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
 
         /// Optional params
@@ -772,7 +772,7 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSingleComicSeriesWith(seriesId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleSerieWith(seriesId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
         serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
 
@@ -857,7 +857,7 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicCreatorsAppearIn(seriesId: Int, config: SerieCreatorConfig,  completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getCreatorsAppearIn(seriesId: Int, config: SerieCreatorConfig,  completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
         serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
 
@@ -906,7 +906,7 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data.
-    open func getComicStoriesFrom(seriesId: Int, config: SerieStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getStoriesFrom(seriesId: Int, config: SerieStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
         serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
 
@@ -930,7 +930,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllComicStories(config: StoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllStorieWith(config: StoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
 
         /// Optional params
@@ -955,7 +955,7 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSingleComicStoryWith(storyId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleStoryWith(storyId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
         storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
 
@@ -970,7 +970,7 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicCharactersAppearIn(storyId: Int, config: StoryCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getCharactersAppearIn(storyId: Int, config: StoryCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
         storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
 
@@ -1038,7 +1038,7 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicCreatorsAppearIn(storyId: Int, config: StoryCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getCreatorsAppearIn(storyId: Int, config: StoryCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
         storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
 
@@ -1083,7 +1083,7 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicSeriesWith(storyId: Int, config: StorySerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSeriesWith(storyId: Int, config: StorySerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
         storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
 

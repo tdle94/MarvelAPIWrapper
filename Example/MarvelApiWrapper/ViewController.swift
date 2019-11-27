@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         var config = StoryConfig()
         config.limit = 1
 
-        marvel.getAllComicStories(config: config) { data, statusCode, error in
+        marvel.getAllStorieWith(config: config) { data, statusCode, error in
             guard let data = data else {
                 return
             }
