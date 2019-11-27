@@ -12,16 +12,16 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
-    let privateKey = "replace with your own private key"
-    let publicKey = "replace with your own public key"
+    let privateKey = "05b154e4641c958256743a9fa74bd16a"
+    let publicKey = "8bd96a0e83daff033aa0e1aaf3fd1644aece99fe"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let marvel = MarvelApiWrapper(publicKey: privateKey, privateKey: publicKey)
-        var config = CreatorConfig()
+        var config = EventConfig()
         config.limit = 1
         
-        marvel.getAllComicCreator(config: config) { data, statusCode, error in
+        marvel.getAllEvents(config: config) { data, statusCode, error in
             guard let data = data else {
                 return
             }

@@ -121,6 +121,40 @@ class TableOfContentsSpec: QuickSpec {
                     marvel.getComicStoriesCreatedBy(creatorId: creatorId, config: CreatorStoryConfig(), completion: self.completion(_:_:_:))
                 }
             }
+            
+            /// Events
+            describe("Creators API call") {
+                it("has valid data from getAllComicWith method") {
+                    var config = EventConfig()
+                    config.limit = 1
+                    marvel.getAllEvents(config: config, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleCreatorWith method for a single commic id") {
+                    let eventId = 116
+                    marvel.getSingleComicWith(id: eventId, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicsCreatedBy method for a single commic id") {
+                    let eventId = 116
+                    marvel.getComicSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getEventsFeaturing method for a single commic id") {
+                    let eventId = 116
+                    marvel.getComicStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single commic id") {
+                    let eventId = 116
+                    marvel.getComicSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleComicWith method for a single commic id") {
+                    let eventId = 116
+                    marvel.getComicStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
+                }
+            }
         }
     }
 }
