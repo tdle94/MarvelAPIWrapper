@@ -190,6 +190,40 @@ class TableOfContentsSpec: QuickSpec {
                     marvel.getEventsOccurIn(seriesId: serieId, config: SerieEventConfig(), completion: self.completion(_:_:_:))
                 }
             }
+            
+            /// Stories
+            describe("Stories API call") {
+                it("has valid data from getAllComicStories method") {
+                    var config = StoryConfig()
+                    config.limit = 1
+                    marvel.getAllComicStories(config: config, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSingleComicStoryWith method for a single serie id") {
+                    let storyId = 7
+                    marvel.getSingleComicStoryWith(storyId: storyId, completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicsAppearIn method for a single serie id") {
+                    let storyId = 7
+                    marvel.getComicsAppearIn(storyId: storyId, config: StoryComicConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicCreatorsAppearIn method for a single serie id") {
+                    let storyId = 7
+                    marvel.getComicCreatorsAppearIn(storyId: storyId, config: StoryCreatorConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getEventsWith method for a single serie id") {
+                    let storyId = 7
+                    marvel.getEventsWith(storyId: storyId, config: StoryEventConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicSeriesWith method for a single serie id") {
+                    let storyId = 7
+                    marvel.getComicSeriesWith(storyId: storyId, config: StorySerieConfig(), completion: self.completion(_:_:_:))
+                }
+            }
         }
     }
 }
