@@ -29,7 +29,7 @@ open class MarvelApiWrapper {
     public let serieURL = "https://gateway.marvel.com:443/v1/public/series"
     
     /// Common story URL
-    public let storyURL = "https://gateway.marvel.com:443/v1/public/series"
+    public let storyURL = "https://gateway.marvel.com:443/v1/public/stories"
 
     /// A timestamp (or other long string which can change on a request-by-request basis)
     public let timestamp: String = "thesoer"
