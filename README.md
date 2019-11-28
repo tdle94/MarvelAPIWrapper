@@ -5,11 +5,30 @@
 [![License](https://img.shields.io/cocoapods/l/MarvelApiWrapper.svg?style=flat)](https://cocoapods.org/pods/MarvelApiWrapper)
 [![Platform](https://img.shields.io/cocoapods/p/MarvelApiWrapper.svg?style=flat)](https://cocoapods.org/pods/MarvelApiWrapper)
 
-## Example
+## About
+A wrapper class around Marvel API that will make your life easier for requesting characters, comics, event, stories and much more from Marvel Studio.
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+## Motivation
+Marvel API has many optional parameter for their GET request. This will simplify your API call as you can choose to whether or not to provide optional parameter through Config without having to remember what to provide to your GET request.
 
-## Requirements
+## Usage
+You have to get public and private key from https://developer.marvel.com/
+
+let privateKey = "replace with your own private key"
+let publicKey = "replace with your own public key"
+
+let marvel = MarvelApiWrapper(publicKey: privateKey, privateKey: publicKey)
+var config = StoryConfig()
+config.limit = 1
+
+marvel.getAllStorieWith(config: config) { data, statusCode, error in
+  guard let data = data else {
+    return
+  }
+          
+  let json = JSON(data)
+  // Do something with json data
+}
 
 ## Installation
 
