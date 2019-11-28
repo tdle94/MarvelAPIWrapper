@@ -10,7 +10,7 @@ class TableOfContentsSpec: QuickSpec {
         if data == nil {
             expect(data).to(equal(nil))
         } else {
-            expect(data).to(be(Data(base64Encoded: data!)))
+            expect(data).to(be(Data(data!)))
         }
     }
 
