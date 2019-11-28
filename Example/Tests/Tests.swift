@@ -111,14 +111,14 @@ class TableOfContentsSpec: QuickSpec {
                     marvel.getEventsFeaturing(creatorId: creatorId, config: CreatorEventConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicSeriesWithAnAppearanceOf method for a single creator id") {
+                it("has valid data from getSeriesWithAnAppearanceOf method for a single creator id") {
                     let creatorId = 6606
-                    marvel.getComicSeriesWithAnAppearanceOf(creatorId: creatorId, config: CreatorSerieConfig(), completion: self.completion(_:_:_:))
+                    marvel.getSeriesWithAnAppearanceOf(creatorId: creatorId, config: CreatorSerieConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicStoriesCreatedBy method for a single creator id") {
+                it("has valid data from getStoriesCreatedBy method for a single creator id") {
                     let creatorId = 6606
-                    marvel.getComicStoriesCreatedBy(creatorId: creatorId, config: CreatorStoryConfig(), completion: self.completion(_:_:_:))
+                    marvel.getStoriesCreatedBy(creatorId: creatorId, config: CreatorStoryConfig(), completion: self.completion(_:_:_:))
                 }
             }
             
@@ -132,25 +132,30 @@ class TableOfContentsSpec: QuickSpec {
                 
                 it("has valid data from getSingleComicWith method for a single event id") {
                     let eventId = 116
-                    marvel.getSingleComicWith(id: eventId, completion: self.completion(_:_:_:))
+                    marvel.getSingleEventWith(id: eventId, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicSeriesFrom method for a single event id") {
+                it("has valid data from getCharacterAppearIn method for a single event id") {
+                    let eventId = 116
+                    marvel.getCharacterAppearIn(eventId: eventId, config: EventCharacterConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getComicsDuringSpecific method for a single event id") {
+                    let eventId = 116
+                    marvel.getComicsDuringSpecific(eventId: eventId, config: EventComicConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getCreatorsAppearIn method for a single event id") {
+                    let eventId = 116
+                    marvel.getCreatorsAppearIn(eventId: eventId, config: EventCreatorConfig(), completion: self.completion(_:_:_:))
+                }
+                
+                it("has valid data from getSeriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicStoriesFrom method for a single event id") {
-                    let eventId = 116
-                    marvel.getStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
-                }
-                
-                it("has valid data from getComicSeriesFrom method for a single event id") {
-                    let eventId = 116
-                    marvel.getSeriesFrom(eventId: eventId, config: EventSerieConfig(), completion: self.completion(_:_:_:))
-                }
-                
-                it("has valid data from getComicStoriesFrom method for a single event id") {
+                it("has valid data from getStoriesFrom method for a single event id") {
                     let eventId = 116
                     marvel.getStoriesFrom(eventId: eventId, config: EventStoryConfig(), completion: self.completion(_:_:_:))
                 }
@@ -199,27 +204,27 @@ class TableOfContentsSpec: QuickSpec {
                     marvel.getAllStorieWith(config: config, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getSingleComicStoryWith method for a single serie id") {
+                it("has valid data from getSingleComicStoryWith method for a single story id") {
                     let storyId = 7
                     marvel.getSingleStoryWith(storyId: storyId, completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicsAppearIn method for a single serie id") {
+                it("has valid data from getComicsAppearIn method for a single story id") {
                     let storyId = 7
                     marvel.getComicsAppearIn(storyId: storyId, config: StoryComicConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicCreatorsAppearIn method for a single serie id") {
+                it("has valid data from getComicCreatorsAppearIn method for a single story id") {
                     let storyId = 7
                     marvel.getCreatorsAppearIn(storyId: storyId, config: StoryCreatorConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getEventsWith method for a single serie id") {
+                it("has valid data from getEventsWith method for a single story id") {
                     let storyId = 7
                     marvel.getEventsWith(storyId: storyId, config: StoryEventConfig(), completion: self.completion(_:_:_:))
                 }
                 
-                it("has valid data from getComicSeriesWith method for a single serie id") {
+                it("has valid data from getComicSeriesWith method for a single story id") {
                     let storyId = 7
                     marvel.getSeriesWith(storyId: storyId, config: StorySerieConfig(), completion: self.completion(_:_:_:))
                 }

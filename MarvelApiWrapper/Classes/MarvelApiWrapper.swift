@@ -504,7 +504,7 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicSeriesWithAnAppearanceOf(creatorId: Int, config: CreatorSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSeriesWithAnAppearanceOf(creatorId: Int, config: CreatorSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
         creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
 
@@ -534,7 +534,7 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicStoriesCreatedBy(creatorId: Int, config: CreatorStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getStoriesCreatedBy(creatorId: Int, config: CreatorStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
         var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
         creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
         
