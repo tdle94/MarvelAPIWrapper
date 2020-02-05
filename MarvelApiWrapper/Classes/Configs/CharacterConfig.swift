@@ -152,7 +152,7 @@ public struct CharacterSerieConfig {
 }
 
 /// GET /v1/public/characters/{characterId}/stories configuration. Provide optional filter
-public struct CharaterStoryConfig {
+public struct CharacterStoryConfig {
     // MARK: - Params provide to GET /v1/public/characters/{characterId}/stories
     public var modifiedSince: String?
 

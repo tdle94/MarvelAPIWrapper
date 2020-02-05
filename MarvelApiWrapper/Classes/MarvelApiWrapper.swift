@@ -5,7 +5,7 @@ import Foundation
 open class MarvelApiWrapper {
     // MARK: - Properties
     /// URL share session across function wrapper
-    let session = URLSession.shared
+    private lazy var session: URLSession = URLSession.shared
 
     /// User must provide public key from https://developer.marvel.com/
     public let publicKey: String
@@ -50,8 +50,7 @@ open class MarvelApiWrapper {
     /// - Parameters:
     ///     - config: Filter option for GET parameters
     ///     - completion: Closure to pass back data
-    open func getAllCharacterWith(config: CharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-
+    open func getAllCharacterWith(config: CharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var characterUrlComponent = getURLComponent(withUrl: characterURL)
 
         /// Optional params
@@ -76,7 +75,7 @@ open class MarvelApiWrapper {
     /// - Parameters:
     ///     - id: Character id
     ///     - completion: Closure to pass back data
-    open func getSingleCharacterWith(id: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleCharacterWith(id: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var characterUrlComponent = getURLComponent(withUrl: characterURL)
         
         characterUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(id)"))
@@ -93,10 +92,8 @@ open class MarvelApiWrapper {
     ///     - id: Character id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicsWith(characterId: Int, config: CharacterComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var characterUrlComponent = getURLComponent(withUrl: characterURL)
-
-        characterUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(characterId)"))
+    open func getComicsWith(characterId: Int, config: CharacterComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/comics")
 
         /// Optional params
         addQueryItemTo(urlComponent: &characterUrlComponent, item: config.formatType)
@@ -137,10 +134,8 @@ open class MarvelApiWrapper {
     ///     - id: Character id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getEventsWith(characterId: Int, config: CharacterEventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var characterUrlComponent = getURLComponent(withUrl: characterURL)
-
-        characterUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(characterId)"))
+    open func getEventsWith(characterId: Int, config: CharacterEventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/events")
 
         /// Optional params
         addQueryItemTo(urlComponent: &characterUrlComponent, item: config.nameStartsWith)
@@ -164,10 +159,8 @@ open class MarvelApiWrapper {
     ///     - id: Character id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSeriesWith(characterId: Int, config: CharacterSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var characterUrlComponent = getURLComponent(withUrl: characterURL)
-
-        characterUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(characterId)"))
+    open func getSeriesWith(characterId: Int, config: CharacterSerieConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/series")
 
         /// Optional params
         addQueryItemTo(urlComponent: &characterUrlComponent, item: config.title)
@@ -195,10 +188,8 @@ open class MarvelApiWrapper {
     ///     - id: Character id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getStoriesWith(characterId: Int, config: CharaterStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var characterUrlComponent = getURLComponent(withUrl: characterURL)
-
-        characterUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(characterId)"))
+    open func getStoriesWith(characterId: Int, config: CharacterStoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/stories")
 
         /// Optinal params
         addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
@@ -220,7 +211,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllComicWith(config: ComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllComicWith(config: ComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var comicUrlComponent = getURLComponent(withUrl: comicURL)
 
         /// Optional params
@@ -261,7 +252,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - id: comic Id
     ///     - completion: Closure to pass back data
-    open func getSingleComicWith(id: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleComicWith(id: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var comicUrlComponent = getURLComponent(withUrl: comicURL)
         
         comicUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(id)"))
@@ -277,11 +268,8 @@ open class MarvelApiWrapper {
     ///     - id: Comic  id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getChactersWith(comicId: Int, config: ComicCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var comicUrlComponent = getURLComponent(withUrl: comicURL)
-
-        comicUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(comicId)"))
-
+    open func getCharactersWith(comicId: Int, config: ComicCharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/characters")
         /// Optional params
         addQueryItemTo(urlComponent: &comicUrlComponent, item: config.nameStartsWith)
         addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
@@ -304,10 +292,8 @@ open class MarvelApiWrapper {
     ///     - id: Comic  id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCreatorsWith(comicId: Int, config: ComicCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var comicUrlComponent = getURLComponent(withUrl: comicURL)
-
-        comicUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(comicId)"))
+    open func getCreatorsWith(comicId: Int, config: ComicCreatorConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/creators")
 
         /// Optional params
         addQueryItemTo(urlComponent: &comicUrlComponent, item: config.firstName)
@@ -335,10 +321,8 @@ open class MarvelApiWrapper {
     ///     - id: Comic  id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getEventsWith(comicId: Int, config: ComicEventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var comicUrlComponent = getURLComponent(withUrl: comicURL)
-
-        comicUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(comicId)"))
+    open func getEventsWith(comicId: Int, config: ComicEventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/events")
 
         /// Optional params
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "characters", item: config.characters)
@@ -363,10 +347,8 @@ open class MarvelApiWrapper {
     ///     - id: Comic  id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getStoriesWith(comicId: Int, config: ComicStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var comicUrlComponent = getURLComponent(withUrl: comicURL)
-
-        comicUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(comicId)"))
+    open func getStoriesWith(comicId: Int, config: ComicStoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/stories")
 
         /// Optional params
         addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
@@ -388,7 +370,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllCreatorWith(config: CreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllCreatorWith(config: CreatorConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
 
         /// Optional params
@@ -419,7 +401,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - id: creator Id
     ///     - completion: Closure to pass back data
-    open func getSingleCreatorWith(id: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleCreatorWith(id: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
         creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(id)"))
 
@@ -434,9 +416,8 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicsCreatedBy(creatorId: Int, config: CreatorComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
-        creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
+    open func getComicsCreatedBy(creatorId: Int, config: CreatorComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var creatorUrlComponent = getURLComponent(withUrl: creatorURL + "/\(creatorId)/comics")
 
         /// Optional params
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "characters", item: config.characters)
@@ -477,9 +458,8 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getEventsFeaturing(creatorId: Int, config: CreatorEventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
-        creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
+    open func getEventsFeaturing(creatorId: Int, config: CreatorEventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var creatorUrlComponent = getURLComponent(withUrl: creatorURL + "/\(creatorId)/events")
         
         /// Optional params
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "charactor", item: config.characters)
@@ -504,9 +484,8 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSeriesWithAnAppearanceOf(creatorId: Int, config: CreatorSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
-        creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
+    open func getSeriesWithAnAppearanceOf(creatorId: Int, config: CreatorSerieConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var creatorUrlComponent = getURLComponent(withUrl: creatorURL + "/\(creatorId)/series")
 
         /// Optional params
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "charactor", item: config.characters)
@@ -534,9 +513,8 @@ open class MarvelApiWrapper {
     ///     - id: creator Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getStoriesCreatedBy(creatorId: Int, config: CreatorStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var creatorUrlComponent = getURLComponent(withUrl: creatorURL)
-        creatorUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(creatorId)"))
+    open func getStoriesCreatedBy(creatorId: Int, config: CreatorStoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var creatorUrlComponent = getURLComponent(withUrl: creatorURL + "/\(creatorId)/stories")
         
         /// Optional params
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "charactor", item: config.characters)
@@ -558,7 +536,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllEventWith(config: EventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllEventWith(config: EventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         
         /// Optional params
@@ -584,7 +562,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - id: event Id
     ///     - completion: Closure to pass back data
-    open func getSingleEventWith(id: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleEventWith(id: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var eventUrlComponent = getURLComponent(withUrl: eventURL)
         eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(id)"))
 
@@ -599,9 +577,8 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCharacterAppearIn(eventId: Int, config: EventCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var eventUrlComponent = getURLComponent(withUrl: eventURL)
-        eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
+    open func getCharacterAppearIn(eventId: Int, config: EventCharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var eventUrlComponent = getURLComponent(withUrl: eventURL + "/\(eventId)/characters")
 
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "limit", item: config.limit)
@@ -625,9 +602,8 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicsDuringSpecific(eventId: Int, config: EventComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var eventUrlComponent = getURLComponent(withUrl: eventURL)
-        eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
+    open func getComicsDuringSpecific(eventId: Int, config: EventComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var eventUrlComponent = getURLComponent(withUrl: eventURL + "/\(eventId)/comics")
 
         /// Optional params
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "characters", item: config.characters)
@@ -670,9 +646,8 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCreatorsAppearIn(eventId: Int, config: EventCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var eventUrlComponent = getURLComponent(withUrl: eventURL)
-        eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
+    open func getCreatorsAppearIn(eventId: Int, config: EventCreatorConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var eventUrlComponent = getURLComponent(withUrl: eventURL + "/\(eventId)/creators")
 
         /// Optional params
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "limit", item: config.limit)
@@ -693,9 +668,8 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSeriesFrom(eventId: Int, config: EventSerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var eventUrlComponent = getURLComponent(withUrl: eventURL)
-        eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
+    open func getSeriesFrom(eventId: Int, config: EventSerieConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var eventUrlComponent = getURLComponent(withUrl: eventURL + "/\(eventId)/series")
 
         /// Optional params
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "characters", item: config.characters)
@@ -720,9 +694,8 @@ open class MarvelApiWrapper {
     ///     - eventId: event Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getStoriesFrom(eventId: Int, config: EventStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var eventUrlComponent = getURLComponent(withUrl: eventURL)
-        eventUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(eventId)"))
+    open func getStoriesFrom(eventId: Int, config: EventStoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var eventUrlComponent = getURLComponent(withUrl: eventURL + "/\(eventId)/stories")
 
         /// Optional params
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "characters", item: config.characters)
@@ -743,7 +716,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllSerieWith(config: SerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllSerieWith(config: SerieConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
 
         /// Optional params
@@ -772,7 +745,7 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSingleSerieWith(seriesId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleSerieWith(seriesId: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var serieUrlComponent = getURLComponent(withUrl: serieURL)
         serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
 
@@ -787,9 +760,8 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCharactersAppearIn(seriesId: Int, config: SerieCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var serieUrlComponent = getURLComponent(withUrl: serieURL)
-        serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
+    open func getCharactersAppearIn(seriesId: Int, config: SerieCharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var serieUrlComponent = getURLComponent(withUrl: serieURL + "/\(seriesId)/characters")
 
         /// Optional params
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "comics", item: config.comics)
@@ -814,9 +786,8 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicsPartOf(seriesId: Int, config: SerieComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var serieUrlComponent = getURLComponent(withUrl: serieURL)
-        serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
+    open func getComicsPartOf(seriesId: Int, config: SerieComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var serieUrlComponent = getURLComponent(withUrl: serieURL + "/\(seriesId)/comics")
 
         /// Optional params
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "characters", item: config.characters)
@@ -857,9 +828,8 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCreatorsAppearIn(seriesId: Int, config: SerieCreatorConfig,  completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var serieUrlComponent = getURLComponent(withUrl: serieURL)
-        serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
+    open func getCreatorsAppearIn(seriesId: Int, config: SerieCreatorConfig,  completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var serieUrlComponent = getURLComponent(withUrl: serieURL + "/\(seriesId)/creators")
 
         /// Optional params
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "events", item: config.events)
@@ -881,9 +851,8 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getEventsOccurIn(seriesId: Int, config: SerieEventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var serieUrlComponent = getURLComponent(withUrl: serieURL)
-        serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
+    open func getEventsOccurIn(seriesId: Int, config: SerieEventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var serieUrlComponent = getURLComponent(withUrl: serieURL + "/\(seriesId)/events")
 
         /// Optional params
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "characters", item: config.characters)
@@ -906,9 +875,8 @@ open class MarvelApiWrapper {
     ///     - seriesId: series Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data.
-    open func getStoriesFrom(seriesId: Int, config: SerieStoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var serieUrlComponent = getURLComponent(withUrl: serieURL)
-        serieUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(seriesId)"))
+    open func getStoriesFrom(seriesId: Int, config: SerieStoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var serieUrlComponent = getURLComponent(withUrl: serieURL + "/\(seriesId)/stories")
 
         /// Optional params
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "characters", item: config.characters)
@@ -930,7 +898,7 @@ open class MarvelApiWrapper {
     /// - Parameters
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getAllStorieWith(config: StoryConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getAllStorieWith(config: StoryConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
 
         /// Optional params
@@ -955,7 +923,7 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSingleStoryWith(storyId: Int, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
+    open func getSingleStoryWith(storyId: Int, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var storyUrlComponent = getURLComponent(withUrl: storyURL)
         storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
 
@@ -970,9 +938,8 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCharactersAppearIn(storyId: Int, config: StoryCharacterConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var storyUrlComponent = getURLComponent(withUrl: storyURL)
-        storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
+    open func getCharactersAppearIn(storyId: Int, config: StoryCharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var storyUrlComponent = getURLComponent(withUrl: storyURL + "/\(storyId)/characters")
 
         /// Optional params
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "comics", item: config.comics)
@@ -996,9 +963,8 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getComicsAppearIn(storyId: Int, config: StoryComicConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var storyUrlComponent = getURLComponent(withUrl: storyURL)
-        storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
+    open func getComicsAppearIn(storyId: Int, config: StoryComicConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var storyUrlComponent = getURLComponent(withUrl: storyURL + "/\(storyId)/comics")
 
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "characters", item: config.characters)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "collaborators", item: config.collaborators)
@@ -1038,9 +1004,8 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getCreatorsAppearIn(storyId: Int, config: StoryCreatorConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var storyUrlComponent = getURLComponent(withUrl: storyURL)
-        storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
+    open func getCreatorsAppearIn(storyId: Int, config: StoryCreatorConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var storyUrlComponent = getURLComponent(withUrl: storyURL + "/\(storyId)/creators")
 
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "events", item: config.events)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "limit", item: config.limit)
@@ -1060,9 +1025,8 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getEventsWith(storyId: Int, config: StoryEventConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var storyUrlComponent = getURLComponent(withUrl: storyURL)
-        storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
+    open func getEventsWith(storyId: Int, config: StoryEventConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var storyUrlComponent = getURLComponent(withUrl: storyURL + "/\(storyId)/events")
 
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "characters", item: config.characters)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "limit", item: config.limit)
@@ -1083,9 +1047,8 @@ open class MarvelApiWrapper {
     ///     - storyId: story Id
     ///     - config: Optional filter for GET params
     ///     - completion: Closure to pass back data
-    open func getSeriesWith(storyId: Int, config: StorySerieConfig, completion: @escaping ((Data?, Int?, Error?) -> Void)) {
-        var storyUrlComponent = getURLComponent(withUrl: storyURL)
-        storyUrlComponent?.queryItems?.append(URLQueryItem(name: "id", value: "\(storyId)"))
+    open func getSeriesWith(storyId: Int, config: StorySerieConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        var storyUrlComponent = getURLComponent(withUrl: storyURL + "/\(storyId)/series")
 
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "characters", item: config.characters)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "events", item: config.events)
@@ -1108,6 +1071,17 @@ open class MarvelApiWrapper {
 /// Helper functions
 extension MarvelApiWrapper {
     // MARK: - Helper functions
+    
+    /// Return URL request configuration
+    /// - Parameters:
+    ///     - url: URL provide
+    /// - Returns: NSMutableURLRequest
+    fileprivate func getNSMutableURLRequest(url: URL) -> NSMutableURLRequest {
+        let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        return request
+    }
+
     /// Get Common query item for Character URL Component
     /// - Returns: A Character URLComponents.,
     fileprivate func getURLComponent(withUrl: String) -> URLComponents? {
@@ -1126,10 +1100,9 @@ extension MarvelApiWrapper {
     /// - Parameters:
     ///     - url: Url provide by wrapper function
     ///     - callBack: Closure to pass back data, statusCode and error
-    fileprivate func fetchWith(url: URL, and callBack: @escaping ((Data?, Int?, Error?) -> Void)) {
-        session.dataTask(with: url) { data, response, error in
-            let httpResponse = response as? HTTPURLResponse
-            callBack(data, httpResponse?.statusCode, error)
+    fileprivate func fetchWith(url: URL, and callBack: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
+        session.dataTask(with: getNSMutableURLRequest(url: url) as URLRequest) { data, response, error in
+            callBack(data, response, error)
         }.resume()
     }
 
