@@ -14,6 +14,7 @@ Marvel API has many optional parameter for their GET request. This will simplify
 ## Usage
 You have to get public and private key from https://developer.marvel.com/
 
+```swift
 let privateKey = "replace with your own private key"
 let publicKey = "replace with your own public key"
 
@@ -29,7 +30,7 @@ marvel.getAllStorieWith(config: config) { data, statusCode, error in
   let json = JSON(data)
   // Do something with json data
 }
-
+```
 ## Installation
 
 MarvelApiWrapper is available through [CocoaPods](https://cocoapods.org). To install
