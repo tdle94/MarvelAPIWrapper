@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MarvelApiWrapper'
   s.version          = '0.1.0'
-  s.summary          = 'A wrapper class around Marvel API that will make your life easier for requesting characters, comics, event, stories and much more from Marvel Studio'
+  s.summary          = 'A wrapper class around Marvel API'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
