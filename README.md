@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/MarvelApiWrapper.svg?style=flat)](https://cocoapods.org/pods/MarvelApiWrapper)
 
 ## About
-A wrapper class around Marvel API that will make your life easier for requesting characters, comics, event, stories and much more from Marvel Studio.
+A wrapper class around Marvel API that will make your life easier for requesting characters, comics, event, stories and much more from Marvel Studio. I use this for [My Marvel app](https://github.com/tdle94/Marvel-App)
 
 ## Motivation
 Marvel API has many optional parameter for their GET request. This will simplify your API call as you can choose to whether or not to provide optional parameter through Config without having to remember what to provide to your GET request.
