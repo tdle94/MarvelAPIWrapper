@@ -727,6 +727,7 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "stories", item: config.stories)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &serieUrlComponent, item: config.contains)
         addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
         addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)

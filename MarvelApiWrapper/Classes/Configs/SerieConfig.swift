@@ -35,6 +35,8 @@ public struct SerieConfig {
     
     public var limit: Int?
     
+    public var offset: Int?
+    
     public init() {}
 }
 
