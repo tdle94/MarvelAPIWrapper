@@ -12,7 +12,7 @@ A wrapper class around Marvel API that will make your life easier for requesting
 Marvel API has many optional parameter for their GET request. This will simplify your API call as you can choose to whether or not to provide optional parameter through Config without having to remember what to provide to your GET request.
 
 ## Usage
-You have to get public and private key from https://developer.marvel.com/
+You have to get public and private key from [Marvel](https://developer.marvel.com/)
 
 ```swift
 let privateKey = "replace with your own private key"
