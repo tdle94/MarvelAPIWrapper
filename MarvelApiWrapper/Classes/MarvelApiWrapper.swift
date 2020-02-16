@@ -54,10 +54,10 @@ open class MarvelApiWrapper {
         var characterUrlComponent = getURLComponent(withUrl: characterURL)
 
         /// Optional params
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "modifiedSince", item: config.modifiedSince)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "comics", item: config.comics)
@@ -96,17 +96,17 @@ open class MarvelApiWrapper {
         var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/comics")
 
         /// Optional params
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "orderBy", item: config.orderBy)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "format", item: config.format)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "series", item: config.series)
@@ -138,9 +138,9 @@ open class MarvelApiWrapper {
         var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/events")
 
         /// Optional params
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "orderBy", item: config.orderBy)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "comics", item: config.comics)
@@ -163,12 +163,12 @@ open class MarvelApiWrapper {
         var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/series")
 
         /// Optional params
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.titleStartWith)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.seriesType)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.contains)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "titleStartWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "seriesType", item: config.seriesType)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "contains", item: config.contains)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "orderBy", item: config.orderBy)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "stories", item: config.stories)
@@ -192,8 +192,8 @@ open class MarvelApiWrapper {
         var characterUrlComponent = getURLComponent(withUrl: characterURL + "/\(characterId)/stories")
 
         /// Optinal params
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &characterUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &characterUrlComponent, name: "orderBy", item: config.orderBy)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &characterUrlComponent, name: "events", item: config.events)
@@ -230,17 +230,17 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "hasDigitalIssue", item: config.hasDigitalIssue)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "offset", item: config.offset)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = comicUrlComponent?.url {
@@ -271,10 +271,10 @@ open class MarvelApiWrapper {
     open func getCharactersWith(comicId: Int, config: ComicCharacterConfig, completion: @escaping ((Data?, URLResponse?, Error?) -> Void)) {
         var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/characters")
         /// Optional params
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.name)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "name", item: config.name)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "events", item: config.events)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "stories", item: config.stories)
@@ -296,14 +296,14 @@ open class MarvelApiWrapper {
         var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/creators")
 
         /// Optional params
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.firstName)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.middleName)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.lastName)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.suffix)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.firstNameStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.middleNameStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.lastName)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "firstName", item: config.firstName)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "middleName", item: config.middleName)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "lastName", item: config.lastName)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "suffix", item: config.suffix)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "firstNameStartsWith", item: config.firstNameStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "middleNameStartsWith", item: config.middleNameStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "lastName", item: config.lastName)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "stories", item: config.stories)
@@ -331,10 +331,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "stories", item: config.stories)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = comicUrlComponent?.url {
@@ -351,8 +351,8 @@ open class MarvelApiWrapper {
         var comicUrlComponent = getURLComponent(withUrl: comicURL + "/\(comicId)/stories")
 
         /// Optional params
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &comicUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &comicUrlComponent, name: "orderBy", item: config.orderBy)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "events", item: config.events)
         addQueryItemTo(urlComponent: &comicUrlComponent, name: "creators", item: config.creators)
@@ -380,16 +380,16 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "stories", item: config.stories)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.firstName)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.firstNameStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.lastName)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.lastNameStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.middleName)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.middleNameStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.suffix)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "firstName", item: config.firstName)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "firstNameStartsWith", item: config.firstNameStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "lastName", item: config.lastName)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "lastNameStartsWith", item: config.lastNameStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "middleName", item: config.middleName)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "middleNameStartsWith", item: config.middleNameStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "suffix", item: config.suffix)
 
         /// API call
         if let url = creatorUrlComponent?.url {
@@ -435,17 +435,17 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "hasDigitalIssue", item: config.hasDigitalIssue)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "noVariants", item: config.noVariants)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = creatorUrlComponent?.url {
@@ -468,10 +468,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "stories", item: config.stories)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = creatorUrlComponent?.url {
@@ -495,12 +495,12 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "events", item: config.events)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.contains)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.seriesType)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "contains", item: config.contains)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "seriesType", item: config.seriesType)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
 
         /// API call
         if let url = creatorUrlComponent?.url {
@@ -523,8 +523,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "events", item: config.events)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &creatorUrlComponent, name: "series", item: config.series)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &creatorUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &creatorUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = creatorUrlComponent?.url {
@@ -547,10 +547,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "series", item: config.series)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -585,11 +585,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "series", item: config.series)
-
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.nameStartsWith)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -623,17 +622,17 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "noVariants", item: config.noVariants)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "stories", item: config.stories)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -654,8 +653,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "stories", item: config.stories)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -678,10 +677,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "creators", item: config.creators)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -703,8 +702,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "series", item: config.series)
         addQueryItemTo(urlComponent: &eventUrlComponent, name: "creators", item: config.creators)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &eventUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &eventUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = eventUrlComponent?.url {
@@ -728,12 +727,12 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "offset", item: config.offset)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.contains)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.seriesType)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "contains", item: config.contains)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "seriesType", item: config.seriesType)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -771,10 +770,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "offset", item: config.offset)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -806,17 +805,17 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "hasDigitalIssue", item: config.hasDigitalIssue)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "noVariants", item: config.noVariants)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "creators", item: config.creators)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -838,8 +837,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "stories", item: config.stories)
          addQueryItemTo(urlComponent: &serieUrlComponent, name: "comics", item: config.comics)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -862,8 +861,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "stories", item: config.stories)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "creators", item: config.creators)
          addQueryItemTo(urlComponent: &serieUrlComponent, name: "comics", item: config.comics)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -886,8 +885,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &serieUrlComponent, name: "comics", item: config.comics)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &serieUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &serieUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = serieUrlComponent?.url {
@@ -909,9 +908,9 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "events", item: config.events)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "offset", item: config.offset)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.series)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "series", item: config.series)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -948,10 +947,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "comics", item: config.comics)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "offset", item: config.offset)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.name)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.nameStartsWith)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "name", item: config.name)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "nameStartsWith", item: config.nameStartsWith)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -982,17 +981,17 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "noVariants", item: config.noVariants)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "series", item: config.series)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.dateDescriptor)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.diamondCode)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.ean)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.formatType)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.isbn)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.issn)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.upc)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "dateDescriptor", item: config.dateDescriptor)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "diamondCode", item: config.diamondCode)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "ean", item: config.ean)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "formatType", item: config.formatType)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "isbn", item: config.isbn)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "issn", item: config.issn)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "upc", item: config.upc)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -1012,8 +1011,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "limit", item: config.limit)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "series", item: config.series)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -1034,8 +1033,8 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "creators", item: config.creators)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "series", item: config.series)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -1057,10 +1056,10 @@ open class MarvelApiWrapper {
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "offset", item: config.offset)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "startYear", item: config.startYear)
         addQueryItemTo(urlComponent: &storyUrlComponent, name: "creators", item: config.creators)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.titleStartsWith)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.title)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.orderBy)
-        addQueryItemTo(urlComponent: &storyUrlComponent, item: config.modifiedSince)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "titleStartsWith", item: config.titleStartsWith)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "title", item: config.title)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "orderBy", item: config.orderBy)
+        addQueryItemTo(urlComponent: &storyUrlComponent, name: "modifiedSince", item: config.modifiedSince)
 
         /// API call
         if let url = storyUrlComponent?.url {
@@ -1111,9 +1110,9 @@ extension MarvelApiWrapper {
     /// - Parameters:
     ///     - urlComponent: Component to add query item to
     ///     - item: Item for URLQueryItem name and value parameters
-    fileprivate func addQueryItemTo(urlComponent: inout URLComponents?, item: String?) {
+    fileprivate func addQueryItemTo(urlComponent: inout URLComponents?, name: String, item: String?) {
         if let item = item {
-            urlComponent?.queryItems?.append(URLQueryItem(name: item, value: item))
+            urlComponent?.queryItems?.append(URLQueryItem(name: name, value: item))
         }
     }
 

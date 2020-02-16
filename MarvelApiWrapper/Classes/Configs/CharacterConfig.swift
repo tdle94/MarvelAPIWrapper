@@ -123,7 +123,7 @@ public struct CharacterSerieConfig {
     // MARK: - Params provide to GET /v1/public/characters/{characterId}/series
     public var title: String?
 
-    public var titleStartWith: String?
+    public var titleStartsWith: String?
 
     public var startYear: Int?
 
