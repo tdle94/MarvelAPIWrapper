@@ -12,7 +12,7 @@ A Marvel API wrapper for requesting characters, comics, event, stories, series a
 get Private and Public key [here](https://developer.marvel.com/)
 
 ## Motivation
-Marvel API has many optional parameter for their GET request. This will simplify your API call as you can choose to whether or not to provide optional parameter through Config without having to remember what to provide to your GET request.
+Marvel API has many optional parameter for their GET request. This will simplify your API call as you can choose to whether or not to provide optional parameter through ``Config`` struct without having to remember what to provide to your GET request.
 
 ## Usage
 You have to get public and private key from [Marvel](https://developer.marvel.com/)
